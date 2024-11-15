@@ -59,6 +59,21 @@ def form():
             res='fail'
 
         return redirect(url_for(res, score=average_marks))
+    
+
+
+#import jsonify
+from flask import jsonify
+# use api for this we use postman app to create api..from there we get info (more about krish naik youtube channel)
+@app.route("/api",methods=["POST"])
+def calculate_sum():
+    data=request.get_json()
+    a_val=float(dict(data)['a'])
+    b_val=float(dict(data)['b'])
+    return jsonify(a_val+b_val)
+
+
+
 
 
 if __name__ == '__main__':
