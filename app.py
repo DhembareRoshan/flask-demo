@@ -35,6 +35,9 @@ def fail(score):
 #render_template use fo
 from flask import render_template,request
 
+#for redirect another form we use redirect and url_for
+from flask import redirect, url_for
+
 #crete form 
 @app.route("/form", methods=['GET','POST'])
 def form():
@@ -47,7 +50,15 @@ def form():
 
         average_marks = (maths + english + science)/3
 
-        return render_template("form.html",score=average_marks)
+        # return render_template("form.html",score=average_marks)
+
+        # redirect to sucess and fail page
+        if average_marks >= 50:
+            res='success'
+        else:
+            res='fail'
+
+        return redirect(url_for(res, score=average_marks))
 
 
 if __name__ == '__main__':
