@@ -1,0 +1,27 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <div class='calculate'>
+            <h1> Calculate Average Marks </h1>
+
+            <!--Main input for receiving query to our ml--> 
+            <!--Here when we hit submit button internally we hit form.html-->
+            <form action="{{url_for('form')}}" method='post'>
+
+                <input type="text" name="Maths" placeholder="Enter Maths Marks" required="required">
+                <input type="text" name="English" placeholder="Enter English Marks" required="required">
+                <input type="text" name="Science" placeholder="Enter Science Marks" required="required">
+
+                <button type="submit" class="btn btn-primary btn-block btn-large"> Calculate Marks </button>
+
+            </form>
+            <br>
+            The Average Marks is {{score}}
+            <br>
+        </div>
+
+    </body>
+</html>
